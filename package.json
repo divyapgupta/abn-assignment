@@ -23,12 +23,17 @@
     "prepare": "husky",
     "prettier": "prettier ./ --check",
     "prettier:fix": "prettier ./ --write",
-    "preview": "vite preview",
+    "preview": "npm run build && vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "vue-tsc"
   },
   "lint-staged": {
-    "*": "npm run format"
+    "*.{js,ts,tsx,vue,html}": [
+      "npm run format"
+    ],
+    "*.{ts,tsx,vue}": [
+      "npm run type-check"
+    ]
   },
   "dependencies": {
     "vue": "^3.5.17"

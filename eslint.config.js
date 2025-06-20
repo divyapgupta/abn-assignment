@@ -27,4 +27,7 @@ export default defineConfig([
     language: "css/css",
     extends: ["css/recommended"],
   },
+  {
+    ignores: ["dist", "node_modules"],
+  },
 ]);
