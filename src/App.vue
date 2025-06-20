@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import Hello from "./components/Hello.vue";
+  import HelloName from "./components/HelloName.vue";
 </script>
 
 <template>
-  <Hello name="Divya Prakash Gupta"/>
+  <HelloName name="Divya Prakash Gupta"/>
 </template>
 
 <style scoped>
