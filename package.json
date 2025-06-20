@@ -1,0 +1,20 @@
+{
+  "name": "abn-amro-frontend-assignment",
+  "version": "1.0.0",
+  "description": "ABN AMRO Frontend developer assignment",
+  "homepage": "https://github.com/divyapgupta/abn-assignment#readme",
+  "bugs": {
+    "url": "https://github.com/divyapgupta/abn-assignment/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/divyapgupta/abn-assignment.git"
+  },
+  "license": "ISC",
+  "author": "Divya Prakash Gupta",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
