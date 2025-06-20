@@ -1,0 +1,11 @@
+# IntelliJ IDEA
+.idea/
+
+# node_modules
+node_modules/
+
+# Build artifacts
+dist/
+
+# Ignore TypeScript incremental build info
+tsconfig.tsbuildinfo
