@@ -1,11 +1,11 @@
 <script setup lang="ts">
-defineProps<{
-  name: string;
-}>();
+import DefaultLayout from "../components/templates/DefaultLayout.vue";
 </script>
 
 <template>
-  <h1>Hello, {{ name }}</h1>
+  <DefaultLayout>
+    <h2>Welcome to the TV Show Dashboard</h2>
+  </DefaultLayout>
 </template>
 
 <style scoped>

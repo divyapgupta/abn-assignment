@@ -28,7 +28,7 @@
     "type-check": "vue-tsc"
   },
   "lint-staged": {
-    "*.{js,ts,tsx,vue,html}": [
+    "*.{js,ts,tsx,vue,html,css}": [
       "npm run format"
     ],
     "*.{ts,tsx,vue}": [
@@ -41,6 +41,7 @@
   "devDependencies": {
     "@eslint/css": "^0.9.0",
     "@eslint/js": "^9.29.0",
+    "@tailwindcss/vite": "^4.1.10",
     "@types/node": "^24.0.3",
     "@vitejs/plugin-vue": "^5.2.4",
     "eslint": "^9.29.0",
@@ -50,6 +51,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.13",
+    "tailwindcss": "^4.1.10",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.1",
     "vite": "^6.3.5",
