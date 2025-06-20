@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  defineProps<{
-    name: string
-  }>()
+defineProps<{
+  name: string;
+}>();
 </script>
 
 <template>
@@ -9,10 +9,10 @@
 </template>
 
 <style scoped>
-  h1 {
-    color: #42b883;
-    font-size: 2em;
-    text-align: center;
-    margin-top: 20px;
-  }
+h1 {
+  color: #42b883;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 20px;
+}
 </style>
