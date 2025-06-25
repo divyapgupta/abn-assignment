@@ -2,7 +2,7 @@ import { describe, it, expect, vi, afterEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import { defineComponent, nextTick } from "vue";
 import fetchShows from "../../../api/fetchShows";
-import { useShows } from "../composables/useShows";
+import { useShows } from "./useShows";
 
 vi.mock("../../../api/fetchShows");
 
