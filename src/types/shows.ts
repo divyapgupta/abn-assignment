@@ -1,3 +1,26 @@
+export type castMember = {
+  person: {
+    id: number;
+    url: string;
+    name: string;
+    image?: {
+      medium: string;
+      original: string;
+    } | null;
+  };
+  character: {
+    id: number;
+    url: string;
+    name: string;
+    image?: {
+      medium: string;
+      original: string;
+    } | null;
+  };
+  self: boolean;
+  voice: boolean;
+};
+
 export type Show = {
   id: number;
   url: string;
@@ -60,5 +83,8 @@ export type Show = {
       href: string;
       name?: string;
     };
+  };
+  _embedded?: {
+    cast: castMember[];
   };
 };
