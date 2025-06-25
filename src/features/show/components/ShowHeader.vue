@@ -9,11 +9,14 @@ defineProps<{
 
 <template>
   <!-- Image -->
-  <div v-if="show.image">
+  <div
+    v-if="show.image"
+    class="relative h-[600px] max-h-[600px] w-full overflow-hidden rounded-4xl"
+  >
     <img
       :src="show.image.original"
       :alt="show.name"
-      class="h-auto max-h-[600px] w-full rounded-4xl object-cover"
+      class="h-full w-full object-cover"
     />
   </div>
 
