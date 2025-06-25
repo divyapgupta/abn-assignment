@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TextInput from "../atoms/TextInput.vue";
+import TextInput from "../../atoms/TextInput/TextInput.vue";
 
 const props = defineProps<{
   query?: string;

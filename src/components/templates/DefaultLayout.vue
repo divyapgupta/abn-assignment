@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Header from "../organisms/Header.vue";
-import Footer from "../organisms/Footer.vue";
+import Header from "../organisms/Header/Header.vue";
+import Footer from "../organisms/Footer/Footer.vue";
 </script>
 
 <template>

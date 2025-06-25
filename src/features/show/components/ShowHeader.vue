@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Heading from "../../../components/atoms/Heading.vue";
+import Heading from "../../../components/atoms/Heading/Heading.vue";
 import { Show } from "../../../types/shows";
 
 defineProps<{

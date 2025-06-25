@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ShowCard from "../../../components/molecules/ShowCard.vue";
+import ShowCard from "../../../components/molecules/ShowCard/ShowCard.vue";
 import { useShows } from "../composables/useShows";
 
 const { searchQuery, shows, loading, error } = useShows();
