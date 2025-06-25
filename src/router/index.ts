@@ -5,7 +5,7 @@ import {
 } from "vue-router";
 import HomePage from "../pages/HomePage.vue";
 import SearchPage from "../pages/SearchPage.vue";
-import ShowDetails from "../pages/ShowDetails.vue";
+import ShowPage from "../pages/ShowPage.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -20,8 +20,8 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/show/:id",
-    name: "ShowDetails",
-    component: ShowDetails,
+    name: "ShowPage",
+    component: ShowPage,
     props: true,
   },
 ];
