@@ -74,6 +74,7 @@ npm run dev
 ```bash
 npm run preview
 ```
+Open your browser and navigate to [http://localhost:4173](http://localhost:4173) to view the application.
 
 ### 🧪 Run Tests
 
