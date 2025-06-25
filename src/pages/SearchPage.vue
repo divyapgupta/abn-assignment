@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Home from "../features/home/pages/Home.vue";
+import Search from "../features/search/pages/Search.vue";
 </script>
 
 <template>
-  <Home />
+  <Search />
 </template>
 
 <style scoped></style>

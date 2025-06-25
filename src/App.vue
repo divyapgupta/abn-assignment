@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import HomePage from "./pages/HomePage.vue";
+import DefaultLayout from "./components/templates/DefaultLayout.vue";
 </script>
 
 <template>
-  <HomePage />
+  <DefaultLayout>
+    <router-view />
+  </DefaultLayout>
 </template>
 
 <style scoped></style>

@@ -1,24 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from "../organisms/Header.vue";
+import Footer from "../organisms/Footer.vue";
+</script>
 
 <template>
-  <div class="default-layout">
-    <header>
-      <h1>TV Show Dashboards</h1>
-    </header>
-
-    <main>
+  <div class="flex min-h-screen flex-col">
+    <Header />
+    <main class="container mx-auto max-w-7xl flex-grow">
       <slot />
     </main>
-
-    <footer>
-      <p>&copy; 2025 TV Show Dashboard</p>
-    </footer>
+    <Footer />
   </div>
 </template>
 
-<style scoped>
-@reference "../../styles/main.css";
-.default-layout {
-  @apply flex min-h-screen flex-col bg-black text-white;
-}
-</style>
+<style scoped></style>
