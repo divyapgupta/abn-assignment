@@ -23,19 +23,26 @@
     "prepare": "husky",
     "prettier": "prettier ./ --check",
     "prettier:fix": "prettier ./ --write",
-    "preview": "vite preview",
+    "preview": "npm run build && vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "vue-tsc"
   },
   "lint-staged": {
-    "*": "npm run format"
+    "*.{js,ts,tsx,vue,html,css}": [
+      "npm run format"
+    ],
+    "*.{ts,tsx,vue}": [
+      "npm run type-check"
+    ]
   },
   "dependencies": {
-    "vue": "^3.5.17"
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@eslint/css": "^0.9.0",
     "@eslint/js": "^9.29.0",
+    "@tailwindcss/vite": "^4.1.10",
     "@types/node": "^24.0.3",
     "@vitejs/plugin-vue": "^5.2.4",
     "eslint": "^9.29.0",
@@ -45,6 +52,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.13",
+    "tailwindcss": "^4.1.10",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.1",
     "vite": "^6.3.5",

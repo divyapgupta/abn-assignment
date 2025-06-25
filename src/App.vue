@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import HelloName from "./components/HelloName.vue";
+import DefaultLayout from "./components/templates/DefaultLayout.vue";
 </script>
 
 <template>
-  <HelloName name="Divya Prakash Gupta" />
+  <DefaultLayout>
+    <router-view />
+  </DefaultLayout>
 </template>
 
 <style scoped></style>

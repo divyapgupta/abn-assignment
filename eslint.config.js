@@ -20,11 +20,17 @@ export default defineConfig([
   {
     files: ["**/*.vue"],
     languageOptions: { parserOptions: { parser: tseslint.parser } },
+    rules: {
+      "vue/multi-word-component-names": "off",
+    },
   },
   {
     files: ["**/*.css"],
     plugins: { css },
     language: "css/css",
     extends: ["css/recommended"],
+  },
+  {
+    ignores: ["dist", "node_modules"],
   },
 ]);
