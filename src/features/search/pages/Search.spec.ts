@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { mount, RouterLinkStub } from "@vue/test-utils";
+import { ref } from "vue";
 import Search from "./Search.vue";
 import ShowCard from "../../../components/molecules/ShowCard/ShowCard.vue";
 
@@ -9,13 +10,13 @@ vi.mock("../composables/useShows", () => ({
 
 import { useShows } from "../composables/useShows";
 
-describe("YourComponent.vue", () => {
+describe("Search.vue", () => {
   it("renders loading state", () => {
     (useShows as any).mockReturnValue({
-      searchQuery: "test query",
-      shows: [],
-      loading: true,
-      error: null,
+      searchQuery: ref("test query"),
+      shows: ref([]),
+      loading: ref(true),
+      error: ref(null),
     });
 
     const wrapper = mount(Search, {
@@ -29,10 +30,10 @@ describe("YourComponent.vue", () => {
 
   it("renders error state", () => {
     (useShows as any).mockReturnValue({
-      searchQuery: "test query",
-      shows: [],
-      loading: false,
-      error: "Failed to load",
+      searchQuery: ref("test query"),
+      shows: ref([]),
+      loading: ref(false),
+      error: ref("Failed to load"),
     });
 
     const wrapper = mount(Search, {
@@ -63,10 +64,10 @@ describe("YourComponent.vue", () => {
     ];
 
     (useShows as any).mockReturnValue({
-      searchQuery: "Breaking Bad",
-      shows: mockShows,
-      loading: false,
-      error: null,
+      searchQuery: ref("Breaking Bad"),
+      shows: ref(mockShows),
+      loading: ref(false),
+      error: ref(null),
     });
 
     const wrapper = mount(Search, {
@@ -83,7 +84,6 @@ describe("YourComponent.vue", () => {
     const showCards = wrapper.findAllComponents(ShowCard);
     expect(showCards.length).toBe(mockShows.length);
 
-    // Check props of first ShowCard
     expect(showCards[0].props()).toEqual({
       id: 1,
       name: "Show One",

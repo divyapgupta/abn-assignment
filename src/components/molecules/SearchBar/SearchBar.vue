@@ -2,7 +2,7 @@
 import TextInput from "../../atoms/TextInput/TextInput.vue";
 
 const props = defineProps<{
-  query?: string;
+  searchQuery?: string;
 }>();
 
 const emit = defineEmits<{
@@ -18,7 +18,7 @@ function onUpdateSearchQuery(value: string) {
   <div class="relative mx-auto w-full max-w-md">
     <TextInput
       type="text"
-      :value="props.query || ''"
+      :value="props.searchQuery || ''"
       @update:value="onUpdateSearchQuery"
       placeholder="Search TV shows..."
     />

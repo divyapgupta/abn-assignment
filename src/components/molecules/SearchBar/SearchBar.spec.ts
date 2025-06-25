@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import TextInput from "../../atoms/TextInput/TextInput.vue";
-import YourComponent from "./SearchBar.vue";
+import SearchBar from "./SearchBar.vue";
 
-describe("YourComponent.vue", () => {
+describe("SearchBar.vue", () => {
   it("renders the TextInput with initial query and emits update event on input", async () => {
-    const wrapper = mount(YourComponent, {
+    const wrapper = mount(SearchBar, {
       props: {
-        query: "initial query",
+        searchQuery: "initial query",
       },
       global: {
         components: { TextInput },
@@ -30,7 +30,7 @@ describe("YourComponent.vue", () => {
   });
 
   it("defaults to empty string if query prop is not passed", () => {
-    const wrapper = mount(YourComponent, {
+    const wrapper = mount(SearchBar, {
       global: {
         components: { TextInput },
       },
