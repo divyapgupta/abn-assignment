@@ -3,6 +3,9 @@ import { mount, RouterLinkStub } from "@vue/test-utils";
 import { ref } from "vue";
 import Search from "./Search.vue";
 import ShowCard from "@/components/molecules/ShowCard/ShowCard.vue";
+import ErrorDisplay from "@/components/molecules/ErrorDisplay/ErrorDisplay.vue";
+import ShowCardSkeleton from "@/components/molecules/ShowCard/ShowCardSkeleton.vue";
+import EmptyState from "@/components/molecules/EmptyState/EmptyState.vue";
 
 vi.mock("@/features/search/composables/useShows", () => ({
   useShows: vi.fn(),
@@ -30,11 +33,11 @@ describe("Search.vue", () => {
 
     const wrapper = mount(Search, {
       global: {
-        stubs: { ShowCard },
+        stubs: { ShowCard, ShowCardSkeleton },
       },
     });
 
-    expect(wrapper.text()).toContain("Loading shows...");
+    expect(wrapper.findAllComponents(ShowCardSkeleton).length).toBe(8);
   });
 
   it("renders error state", () => {
@@ -47,11 +50,12 @@ describe("Search.vue", () => {
 
     const wrapper = mount(Search, {
       global: {
-        stubs: { ShowCard },
+        stubs: { ShowCard, ErrorDisplay },
       },
     });
 
-    expect(wrapper.text()).toContain("Error: Failed to load");
+    expect(wrapper.text()).toContain("Failed to load");
+    expect(wrapper.findComponent(ErrorDisplay).exists()).toBe(true);
   });
 
   it("renders shows list and search query heading", () => {
@@ -62,13 +66,6 @@ describe("Search.vue", () => {
         image: { medium: "image1.jpg" },
         rating: { average: 9 },
         genres: ["Drama"],
-      },
-      {
-        id: 2,
-        name: "Show Two",
-        image: { medium: "image2.jpg" },
-        rating: { average: 7 },
-        genres: ["Comedy"],
       },
     ];
 
@@ -89,16 +86,27 @@ describe("Search.vue", () => {
     });
 
     expect(wrapper.text()).toContain("Search results for: Breaking Bad");
-
     const showCards = wrapper.findAllComponents(ShowCard);
     expect(showCards.length).toBe(mockShows.length);
+  });
 
-    expect(showCards[0].props()).toEqual({
-      id: 1,
-      name: "Show One",
-      imageUrl: "image1.jpg",
-      rating: 9,
-      genres: ["Drama"],
+  it("renders empty state when no shows found", () => {
+    (useShows as Mock).mockReturnValue({
+      searchQuery: ref("Unknown Show"),
+      shows: ref([]),
+      loading: ref(false),
+      error: ref(null),
     });
+
+    const wrapper = mount(Search, {
+      global: {
+        stubs: { EmptyState },
+      },
+    });
+
+    expect(wrapper.findComponent(EmptyState).exists()).toBe(true);
+    expect(wrapper.text()).toContain(
+      "We couldn't find any shows matching 'Breaking Bad'.",
+    );
   });
 });

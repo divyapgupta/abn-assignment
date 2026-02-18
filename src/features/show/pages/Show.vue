@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
+import ErrorDisplay from "@/components/molecules/ErrorDisplay/ErrorDisplay.vue";
 import { useShow } from "@/features/show/composables/useShow";
 import ShowHeader from "@/features/show/components/ShowHeader.vue";
 import ShowDetails from "@/features/show/components/ShowDetails.vue";
@@ -9,7 +10,7 @@ const route = useRoute();
 const router = useRouter();
 const showId = Number(route.params.id);
 
-const { show, loading, error } = useShow(showId);
+const { show, error } = useShow(showId);
 
 function goBack() {
   router.back();
@@ -25,8 +26,7 @@ function goBack() {
       ← Back
     </button>
 
-    <div v-if="loading">Loading show details...</div>
-    <div v-else-if="error">Error: {{ error }}</div>
+    <ErrorDisplay v-if="error" :message="error" />
 
     <div v-else-if="show" class="space-y-8">
       <ShowHeader :show="show" />
