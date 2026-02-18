@@ -1,6 +1,7 @@
 import { ref, onMounted, type Ref } from "vue";
 import type { Show } from "@/types/shows";
 import fetchShows from "@/api/fetchShows";
+import { sortShowsByRating } from "@/utils/sortShows";
 
 export function useShows(): {
   shows: Ref<Map<string, Show[]>>;
@@ -42,11 +43,8 @@ function groupAndSortShows(shows: Show[]): Map<string, Show[]> {
     }
   }
 
-  // Sort each genre's shows by rating
   for (const genreShows of showsGroupedByGenre.values()) {
-    genreShows.sort(
-      (a, b) => (b.rating?.average || 0) - (a.rating?.average || 0),
-    );
+    sortShowsByRating(genreShows);
   }
 
   return showsGroupedByGenre;
