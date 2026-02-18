@@ -82,6 +82,7 @@ Open your browser and navigate to [http://localhost:4173](http://localhost:4173)
 
 ```bash
 npm run test
+npm run test:e2e
 ```
 
 ### 🧹 Lint and Format
@@ -115,12 +116,33 @@ npm run format
 
 ## 🧪 Testing
 
+### Unit Tests
+
 The application includes unit tests for key components and logic using **Vitest** and **@testing-library/vue**. Test files are colocated with components or in a `tests/` folder.
 
-Run all tests:
+Run unit tests:
 
 ```bash
 npm run test
+```
+
+### End-to-End (E2E) Tests
+
+The application uses **Playwright** for end-to-end testing, covering critical user flows. Tests are located in `tests/e2e/`.
+
+Run E2E tests (headless):
+```bash
+npm run test:e2e
+```
+
+Run E2E tests with UI mode (for debugging):
+```bash
+npx playwright test --ui
+```
+
+View the HTML test report:
+```bash
+npx playwright show-report
 ```
 
 ---
