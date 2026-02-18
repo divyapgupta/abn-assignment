@@ -31,6 +31,11 @@ export default defineConfig([
     extends: ["css/recommended"],
   },
   {
-    ignores: ["dist", "node_modules"],
+    ignores: [
+      "dist",
+      "node_modules",
+      "playwright-report/**",
+      "test-results/**",
+    ],
   },
 ]);

@@ -8,6 +8,8 @@ test("search and view show details flow", async ({ page }) => {
   await expect(searchInput).toBeVisible();
   await searchInput.fill("Batman");
 
+  await page.waitForTimeout(1000);
+
   const firstResult = page.getByTestId("show-card").first();
   await expect(firstResult).toBeVisible({ timeout: 10000 });
 
