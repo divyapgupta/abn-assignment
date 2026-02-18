@@ -20,8 +20,15 @@ const { shows, loading, error } = useShows();
 
     <ErrorDisplay v-else-if="error" :message="error" />
     <div v-else>
-      <div v-for="[genre, genreShows] in shows" :key="genre" class="mb-8">
-        <h2 class="mb-4 text-xl font-semibold">{{ genre }}</h2>
+      <div
+        v-for="[genre, genreShows] in shows"
+        :key="genre"
+        class="mb-8"
+        data-testid="genre-section"
+      >
+        <h2 class="mb-4 text-xl font-semibold" data-testid="genre-title">
+          {{ genre }}
+        </h2>
         <div class="flex gap-4 overflow-x-auto">
           <ShowCard
             v-for="genreShow in genreShows"

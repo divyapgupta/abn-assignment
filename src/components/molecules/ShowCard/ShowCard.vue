@@ -12,7 +12,7 @@ defineProps<{
 </script>
 
 <template>
-  <RouterLink :to="`/show/${id}`">
+  <RouterLink :to="`/show/${id}`" data-testid="show-card">
     <div
       class="group w-40 flex-shrink-0 overflow-hidden rounded-lg shadow-md sm:w-56 md:w-64"
     >

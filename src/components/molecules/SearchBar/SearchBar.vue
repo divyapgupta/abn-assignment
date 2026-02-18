@@ -19,6 +19,7 @@ function onUpdateSearchQuery(value: string) {
     <TextInput
       type="text"
       :value="props.searchQuery || ''"
+      data-testid="search-input"
       @update:value="onUpdateSearchQuery"
       placeholder="Search TV shows..."
     />

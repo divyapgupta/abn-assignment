@@ -22,7 +22,7 @@ defineProps<{
 
   <!-- Title & Genres -->
   <div class="space-y-4">
-    <Heading :level="1" class="text-4xl font-bold">
+    <Heading :level="1" class="text-4xl font-bold" data-testid="show-title">
       {{ show.name }}
     </Heading>
 
