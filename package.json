@@ -25,6 +25,7 @@
     "prettier:fix": "prettier ./ --write",
     "preview": "npm run build && vite preview",
     "test": "vitest",
+    "test:e2e": "playwright test",
     "type-check": "vue-tsc"
   },
   "lint-staged": {
