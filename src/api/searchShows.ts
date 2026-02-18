@@ -1,3 +1,4 @@
+import { apiClient } from "@/utils/apiClient";
 import type { Show } from "@/types/shows";
 
 export interface SearchResult {
@@ -8,11 +9,5 @@ export interface SearchResult {
 export default async function searchShows(
   query: string,
 ): Promise<SearchResult[]> {
-  const res = await fetch(
-    `https://api.tvmaze.com/search/shows?q=${encodeURIComponent(query)}`,
-  );
-
-  if (!res.ok) throw new Error("Failed to search shows");
-
-  return res.json() as Promise<SearchResult[]>;
+  return apiClient.get<SearchResult[]>("/search/shows", { q: query });
 }
