@@ -2,6 +2,7 @@ import { ref, watch, type Ref } from "vue";
 import type { Show } from "@/types/shows";
 import searchShows from "@/api/searchShows";
 import { sortShowsByRating } from "@/utils/sortShows";
+import { sanitizeInput } from "@/utils/inputSanitizer";
 
 export function useShows(query: Ref<string>): {
   shows: Ref<Show[]>;
@@ -16,11 +17,12 @@ export function useShows(query: Ref<string>): {
     loading.value = true;
     error.value = null;
     try {
-      if (!q) {
+      const sanitizedQuery = sanitizeInput(q);
+      if (!sanitizedQuery) {
         shows.value = [];
         return;
       }
-      const response = await searchShows(q);
+      const response = await searchShows(sanitizedQuery);
       const mappedShows = response.map((item: { show: Show }) => item.show);
       shows.value = sortShowsByRating(mappedShows);
     } catch (err: unknown) {
