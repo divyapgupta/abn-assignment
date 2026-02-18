@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted } from "vue";
 import { RouterLink, useRouter, useRoute } from "vue-router";
-import SearchBar from "../../molecules/SearchBar/SearchBar.vue";
+import SearchBar from "@/components/molecules/SearchBar/SearchBar.vue";
 
 const router = useRouter();
 const route = useRoute();

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { castMember } from "../../../types/shows";
-import Heading from "../../../components/atoms/Heading/Heading.vue";
+import { castMember } from "@/types/shows";
+import Heading from "@/components/atoms/Heading/Heading.vue";
 
 defineProps<{
   cast: castMember[];

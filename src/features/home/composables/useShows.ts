@@ -1,6 +1,6 @@
 import { ref, onMounted, type Ref } from "vue";
-import type { Show } from "../../../types/shows";
-import fetchShows from "../../../api/fetchShows";
+import type { Show } from "@/types/shows";
+import fetchShows from "@/api/fetchShows";
 
 export function useShows(): {
   shows: Ref<Map<string, Show[]>>;

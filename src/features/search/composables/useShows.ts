@@ -1,7 +1,7 @@
 import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
-import type { Show } from "../../../types/shows";
-import searchShows from "../../../api/searchShows";
+import type { Show } from "@/types/shows";
+import searchShows from "@/api/searchShows";
 
 export function useShows() {
   const route = useRoute();

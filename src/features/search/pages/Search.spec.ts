@@ -2,13 +2,13 @@ import { describe, it, expect, vi, type Mock } from "vitest";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { ref } from "vue";
 import Search from "./Search.vue";
-import ShowCard from "../../../components/molecules/ShowCard/ShowCard.vue";
+import ShowCard from "@/components/molecules/ShowCard/ShowCard.vue";
 
-vi.mock("../composables/useShows", () => ({
+vi.mock("@/features/search/composables/useShows", () => ({
   useShows: vi.fn(),
 }));
 
-import { useShows } from "../composables/useShows";
+import { useShows } from "@/features/search/composables/useShows";
 
 describe("Search.vue", () => {
   it("renders loading state", () => {

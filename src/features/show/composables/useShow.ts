@@ -1,6 +1,6 @@
 import { ref, onMounted } from "vue";
-import type { Show } from "../../../types/shows";
-import fetchShowInformation from "../../../api/fetchShowInformation";
+import type { Show } from "@/types/shows";
+import fetchShowInformation from "@/api/fetchShowInformation";
 
 export function useShow(showId: number) {
   const show = ref<Show | null>(null);

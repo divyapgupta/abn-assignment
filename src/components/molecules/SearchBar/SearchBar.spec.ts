@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import TextInput from "../../atoms/TextInput/TextInput.vue";
+import TextInput from "@/components/atoms/TextInput/TextInput.vue";
 import SearchBar from "./SearchBar.vue";
 
 describe("SearchBar.vue", () => {

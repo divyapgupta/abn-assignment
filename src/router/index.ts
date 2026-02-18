@@ -3,9 +3,9 @@ import {
   createWebHistory,
   type RouteRecordRaw,
 } from "vue-router";
-import HomePage from "../pages/HomePage.vue";
-import SearchPage from "../pages/SearchPage.vue";
-import ShowPage from "../pages/ShowPage.vue";
+import HomePage from "@/pages/HomePage.vue";
+import SearchPage from "@/pages/SearchPage.vue";
+import ShowPage from "@/pages/ShowPage.vue";
 
 const routes: RouteRecordRaw[] = [
   {

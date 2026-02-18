@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ShowCard from "../../../components/molecules/ShowCard/ShowCard.vue";
-import { useShows } from "../composables/useShows";
+import ShowCard from "@/components/molecules/ShowCard/ShowCard.vue";
+import { useShows } from "@/features/home/composables/useShows";
 
 const { shows, loading, error } = useShows();
 </script>

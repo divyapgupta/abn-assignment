@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import Heading from "../../atoms/Heading/Heading.vue";
+import Heading from "@/components/atoms/Heading/Heading.vue";
 
 defineProps<{
   id: number;

@@ -1,4 +1,4 @@
-import { Show } from "../types/shows";
+import { Show } from "@/types/shows";
 
 export default async function fetchShows(): Promise<Show[]> {
   const res = await fetch("https://api.tvmaze.com/shows");

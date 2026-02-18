@@ -8,11 +8,11 @@ import {
 } from "vitest";
 import { mount } from "@vue/test-utils";
 import { defineComponent, nextTick } from "vue";
-import type { Show } from "../../../types/shows";
-import fetchShows from "../../../api/fetchShows";
+import type { Show } from "@/types/shows";
+import fetchShows from "@/api/fetchShows";
 import { useShows } from "./useShows";
 
-vi.mock("../../../api/fetchShows");
+vi.mock("@/api/fetchShows");
 
 const mockedFetchShows = fetchShows as MockedFunction<typeof fetchShows>;
 

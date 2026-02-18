@@ -1,4 +1,4 @@
-import { Show } from "../types/shows";
+import { Show } from "@/types/shows";
 
 export default async function fetchShowInformation(
   showId: number,

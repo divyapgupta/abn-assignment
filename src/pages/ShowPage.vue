@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Show from "../features/show/pages/Show.vue";
+import Show from "@/features/show/pages/Show.vue";
 </script>
 
 <template>

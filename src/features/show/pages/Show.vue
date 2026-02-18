@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
-import { useShow } from "../composables/useShow";
-import ShowHeader from "../components/ShowHeader.vue";
-import ShowDetails from "../components/ShowDetails.vue";
-import ShowCast from "../components/ShowCast.vue";
+import { useShow } from "@/features/show/composables/useShow";
+import ShowHeader from "@/features/show/components/ShowHeader.vue";
+import ShowDetails from "@/features/show/components/ShowDetails.vue";
+import ShowCast from "@/features/show/components/ShowCast.vue";
 
 const route = useRoute();
 const router = useRouter();

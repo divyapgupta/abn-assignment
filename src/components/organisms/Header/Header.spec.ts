@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import Header from "./Header.vue";
-import SearchBar from "../../molecules/SearchBar/SearchBar.vue";
+import SearchBar from "@/components/molecules/SearchBar/SearchBar.vue";
 import { routerKey, routeLocationKey } from "vue-router";
 
 describe("Header.vue", () => {

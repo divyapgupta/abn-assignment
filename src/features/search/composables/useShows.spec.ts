@@ -2,10 +2,10 @@ import { defineComponent, nextTick } from "vue";
 import { mount } from "@vue/test-utils";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-import searchShows from "../../../api/searchShows";
+import searchShows from "@/api/searchShows";
 import { useShows } from "./useShows";
 
-vi.mock("../../../api/searchShows", () => ({
+vi.mock("@/api/searchShows", () => ({
   default: vi.fn(),
 }));
 

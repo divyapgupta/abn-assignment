@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import ShowCard from "../../../components/molecules/ShowCard/ShowCard.vue";
-import { useShows } from "../composables/useShows";
-import Heading from "../../../components/atoms/Heading/Heading.vue";
+import ShowCard from "@/components/molecules/ShowCard/ShowCard.vue";
+import { useShows } from "@/features/search/composables/useShows";
+import Heading from "@/components/atoms/Heading/Heading.vue";
 
 const { searchQuery, shows, loading, error } = useShows();
 

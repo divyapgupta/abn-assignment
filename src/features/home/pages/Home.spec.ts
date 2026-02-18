@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from "vitest";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { ref } from "vue";
-import type { Show } from "../../../types/shows";
-import ShowCard from "../../../components/molecules/ShowCard/ShowCard.vue";
-import * as useShowsModule from "../composables/useShows";
+import type { Show } from "@/types/shows";
+import ShowCard from "@/components/molecules/ShowCard/ShowCard.vue";
+import * as useShowsModule from "@/features/home/composables/useShows";
 import Home from "./Home.vue";
 
 describe("home.vue", () => {

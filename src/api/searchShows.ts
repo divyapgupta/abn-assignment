@@ -1,4 +1,4 @@
-import type { Show } from "../types/shows";
+import type { Show } from "@/types/shows";
 
 export interface SearchResult {
   score: number;
