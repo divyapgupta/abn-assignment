@@ -22,13 +22,13 @@ Key features include:
 ## 🏗️ Architecture & Design Decisions
 
 - **Framework**: [Vue 3](https://vuejs.org/) with Composition API — chosen due to its modern reactivity system and ABN AMRO's preference.
-- **Routing**: [Vue Router 4](https://router.vuejs.org/) for managing page navigation.
+- **Routing**: [Vue Router 5](https://router.vuejs.org/) for managing page navigation.
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) — chosen for rapid UI development and responsive design capabilities.
 - **Tooling**: [Vite](https://vitejs.dev/) for fast builds and hot module replacement.
 - **Type Safety**: TypeScript is used throughout the codebase to catch errors early and enhance developer experience.
 - **Linting & Formatting**: ESLint and Prettier with `lint-staged` + Husky for consistent code quality during development.
 - **Testing**: [Vitest](https://vitest.dev/) and [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro) are used to write unit tests for key components and utilities.
-- **E2E**: Todo: Cypress or Playwright can be used for end-to-end testing in the future.
+- **E2E Testing**: [Playwright](https://playwright.dev/) is used for end-to-end testing of critical user flows.
 
 ---
 
@@ -42,6 +42,7 @@ Key features include:
 | Build Tool   | Vite                        |
 | Linting      | ESLint, Prettier            |
 | Testing      | Vitest, Testing Library Vue |
+| E2E Testing  | Playwright                  |
 | Language     | TypeScript                  |
 
 ---
@@ -103,6 +104,8 @@ npm run format
 │   ├── router/           # Vue Router setup
 │   ├── types/            # TypeScript interfaces/types
 │   └── styles/           # Global styles and Tailwind configuration
+├── tests/
+│   └── e2e/              # Playwright E2E tests
 ├── public/
 ├── vite.config.ts
 └── package.json
@@ -128,6 +131,7 @@ npm run test
 - Shows are sorted by rating within each genre section to highlight the top-rated content.
 - Search feature queries shows by name using the `/search/shows?q=` endpoint.
 - Designed to be minimal yet visually appealing, ensuring clarity and usability across devices.
+- **UX Enhancements**: Implemented Skeleton loaders for loading states and empty states for better user feedback.
 
 ---
 
