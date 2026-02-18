@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { useRoute } from "vue-router";
 import ShowCard from "@/components/molecules/ShowCard/ShowCard.vue";
 import { useShows } from "@/features/search/composables/useShows";
 import Heading from "@/components/atoms/Heading/Heading.vue";
 
-const { searchQuery, shows, loading, error } = useShows();
+const route = useRoute();
+const searchQuery = computed(() => (route.query.query as string) || "");
+const { shows, loading, error } = useShows(searchQuery);
 
 const headingText = computed(() =>
   shows.value.length !== 0

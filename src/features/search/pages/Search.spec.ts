@@ -8,12 +8,21 @@ vi.mock("@/features/search/composables/useShows", () => ({
   useShows: vi.fn(),
 }));
 
+vi.mock("vue-router", async () => {
+  const actual = await vi.importActual("vue-router");
+  return {
+    ...actual,
+    useRoute: vi.fn(() => ({
+      query: { query: "Breaking Bad" },
+    })),
+  };
+});
+
 import { useShows } from "@/features/search/composables/useShows";
 
 describe("Search.vue", () => {
   it("renders loading state", () => {
     (useShows as Mock).mockReturnValue({
-      searchQuery: ref("test query"),
       shows: ref([]),
       loading: ref(true),
       error: ref(null),
