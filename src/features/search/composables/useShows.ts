@@ -1,9 +1,14 @@
-import { ref, onMounted, watch } from "vue";
+import { ref, watch, type Ref } from "vue";
 import { useRoute } from "vue-router";
 import type { Show } from "@/types/shows";
 import searchShows from "@/api/searchShows";
 
-export function useShows() {
+export function useShows(): {
+  searchQuery: Ref<string>;
+  shows: Ref<Show[]>;
+  loading: Ref<boolean>;
+  error: Ref<string | null>;
+} {
   const route = useRoute();
   const shows = ref<Show[]>([]);
   const loading = ref(true);
@@ -21,19 +26,15 @@ export function useShows() {
       }
       const response = await searchShows(query);
       shows.value = response.map((item: { show: Show }) => item.show);
-    } catch (err) {
-      error.value = (err as Error).message;
+    } catch (err: unknown) {
+      error.value =
+        err instanceof Error ? err.message : "An unknown error occurred";
     } finally {
       loading.value = false;
     }
   }
 
-  // Initial fetch
-  onMounted(() => {
-    getShows(searchQuery.value);
-  });
-
-  // Watch for query changes
+  // Watch for query changes and fetch immediately
   watch(
     () => route.query.query,
     (newQuery) => {
@@ -41,6 +42,7 @@ export function useShows() {
       searchQuery.value = query;
       getShows(query);
     },
+    { immediate: true },
   );
 
   return { searchQuery, shows, loading, error };

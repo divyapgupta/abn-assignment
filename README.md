@@ -1,4 +1,3 @@
-
 # ABN AMRO Frontend Developer Assignment
 
 An interactive and responsive Vue 3 application that displays TV shows categorized by genre and sorted by rating. Users can browse genres, search shows by name, and view detailed information for each show.
@@ -10,6 +9,7 @@ An interactive and responsive Vue 3 application that displays TV shows categoriz
 This project is a solution to the ABN AMRO Frontend Developer Assignment. The goal is to demonstrate clean, reusable code using modern frontend best practices while building a visually appealing and intuitive user interface with Vue.js.
 
 Key features include:
+
 - Fetching and displaying TV shows from the [TVMaze API](https://www.tvmaze.com/api)
 - Grouping shows by genre (e.g. Drama, Comedy, Sports, etc.)
 - Sorting shows by rating within each genre
@@ -34,15 +34,15 @@ Key features include:
 
 ## 📦 Tech Stack
 
-| Category       | Tool/Library                 |
-|----------------|------------------------------|
-| UI Framework   | Vue 3                        |
-| Router         | Vue Router                   |
-| Styling        | Tailwind CSS                 |
-| Build Tool     | Vite                         |
-| Linting        | ESLint, Prettier             |
-| Testing        | Vitest, Testing Library Vue  |
-| Language       | TypeScript                   |
+| Category     | Tool/Library                |
+| ------------ | --------------------------- |
+| UI Framework | Vue 3                       |
+| Router       | Vue Router                  |
+| Styling      | Tailwind CSS                |
+| Build Tool   | Vite                        |
+| Linting      | ESLint, Prettier            |
+| Testing      | Vitest, Testing Library Vue |
+| Language     | TypeScript                  |
 
 ---
 
@@ -74,6 +74,7 @@ npm run dev
 ```bash
 npm run preview
 ```
+
 Open your browser and navigate to [http://localhost:4173](http://localhost:4173) to view the application.
 
 ### 🧪 Run Tests
@@ -132,7 +133,7 @@ npm run test
 
 ## 🧑‍💻 Author
 
-**Divya Prakash Gupta**  
+**Divya Prakash Gupta**
 
 ---
 

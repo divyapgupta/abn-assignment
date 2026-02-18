@@ -14,30 +14,10 @@ export function useShows(): {
   async function getShowsGroupedByGenre(): Promise<void> {
     try {
       const showsListFromApi: Show[] = await fetchShows();
-
-      // Group shows by genre
-      const showsGroupedByGenre = new Map<string, Show[]>();
-      showsListFromApi.forEach((show) => {
-        if (show.genres) {
-          show.genres.forEach((genre) => {
-            if (!showsGroupedByGenre.has(genre)) {
-              showsGroupedByGenre.set(genre, []);
-            }
-            showsGroupedByGenre.get(genre)!.push(show);
-          });
-        }
-      });
-
-      // Sort each genre's shows by rating
-      showsGroupedByGenre.forEach((genreShows) => {
-        genreShows.sort(
-          (a, b) => (b.rating?.average || 0) - (a.rating?.average || 0),
-        );
-      });
-
-      shows.value = showsGroupedByGenre;
-    } catch (err) {
-      error.value = (err as Error).message;
+      shows.value = groupAndSortShows(showsListFromApi);
+    } catch (err: unknown) {
+      error.value =
+        err instanceof Error ? err.message : "An unknown error occurred";
     } finally {
       loading.value = false;
     }
@@ -46,4 +26,28 @@ export function useShows(): {
   onMounted(getShowsGroupedByGenre);
 
   return { shows, loading, error };
+}
+
+function groupAndSortShows(shows: Show[]): Map<string, Show[]> {
+  const showsGroupedByGenre = new Map<string, Show[]>();
+
+  for (const show of shows) {
+    if (!show.genres) continue;
+
+    for (const genre of show.genres) {
+      if (!showsGroupedByGenre.has(genre)) {
+        showsGroupedByGenre.set(genre, []);
+      }
+      showsGroupedByGenre.get(genre)!.push(show);
+    }
+  }
+
+  // Sort each genre's shows by rating
+  for (const genreShows of showsGroupedByGenre.values()) {
+    genreShows.sort(
+      (a, b) => (b.rating?.average || 0) - (a.rating?.average || 0),
+    );
+  }
+
+  return showsGroupedByGenre;
 }
