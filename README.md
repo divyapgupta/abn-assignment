@@ -131,16 +131,19 @@ npm run test
 The application uses **Playwright** for end-to-end testing, covering critical user flows. Tests are located in `tests/e2e/`.
 
 Run E2E tests (headless):
+
 ```bash
 npm run test:e2e
 ```
 
 Run E2E tests with UI mode (for debugging):
+
 ```bash
 npx playwright test --ui
 ```
 
 View the HTML test report:
+
 ```bash
 npx playwright show-report
 ```
