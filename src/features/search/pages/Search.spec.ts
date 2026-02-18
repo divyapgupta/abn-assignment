@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, type Mock } from "vitest";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { ref } from "vue";
 import Search from "./Search.vue";
@@ -12,7 +12,7 @@ import { useShows } from "../composables/useShows";
 
 describe("Search.vue", () => {
   it("renders loading state", () => {
-    (useShows as any).mockReturnValue({
+    (useShows as Mock).mockReturnValue({
       searchQuery: ref("test query"),
       shows: ref([]),
       loading: ref(true),
@@ -29,7 +29,7 @@ describe("Search.vue", () => {
   });
 
   it("renders error state", () => {
-    (useShows as any).mockReturnValue({
+    (useShows as Mock).mockReturnValue({
       searchQuery: ref("test query"),
       shows: ref([]),
       loading: ref(false),
@@ -63,7 +63,7 @@ describe("Search.vue", () => {
       },
     ];
 
-    (useShows as any).mockReturnValue({
+    (useShows as Mock).mockReturnValue({
       searchQuery: ref("Breaking Bad"),
       shows: ref(mockShows),
       loading: ref(false),

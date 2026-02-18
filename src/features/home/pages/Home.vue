@@ -10,16 +10,16 @@ const { shows, loading, error } = useShows();
     <div v-if="loading">Loading shows...</div>
     <div v-else-if="error">Error: {{ error }}</div>
     <div v-else>
-      <div v-for="[genre, shows] in shows" :key="genre" class="mb-8">
+      <div v-for="[genre, genreShows] in shows" :key="genre" class="mb-8">
         <h2 class="mb-4 text-xl font-semibold">{{ genre }}</h2>
         <div class="flex gap-4 overflow-x-auto">
           <ShowCard
-            v-for="show in shows"
-            :key="show.id"
-            :id="show.id"
-            :name="show.name"
-            :imageUrl="show.image?.medium"
-            :rating="show.rating?.average"
+            v-for="genreShow in genreShows"
+            :key="genreShow.id"
+            :id="genreShow.id"
+            :name="genreShow.name"
+            :imageUrl="genreShow.image?.medium"
+            :rating="genreShow.rating?.average"
           />
         </div>
       </div>

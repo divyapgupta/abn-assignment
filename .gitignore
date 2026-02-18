@@ -9,3 +9,8 @@ dist/
 
 # Ignore TypeScript incremental build info
 tsconfig.tsbuildinfo
+
+# Ignore generated files in src
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts

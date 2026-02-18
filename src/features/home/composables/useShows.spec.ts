@@ -1,12 +1,20 @@
-import { describe, it, expect, vi, afterEach } from "vitest";
+import {
+  describe,
+  it,
+  expect,
+  vi,
+  afterEach,
+  type MockedFunction,
+} from "vitest";
 import { mount } from "@vue/test-utils";
 import { defineComponent, nextTick } from "vue";
+import type { Show } from "../../../types/shows";
 import fetchShows from "../../../api/fetchShows";
 import { useShows } from "./useShows";
 
 vi.mock("../../../api/fetchShows");
 
-const mockedFetchShows = fetchShows as vi.MockedFunction<typeof fetchShows>;
+const mockedFetchShows = fetchShows as MockedFunction<typeof fetchShows>;
 
 describe("useShows composable", () => {
   const TestComponent = defineComponent({
@@ -44,7 +52,7 @@ describe("useShows composable", () => {
         rating: { average: 7.0 },
         image: { medium: "urlC" },
       },
-    ]);
+    ] as unknown as Show[]);
 
     const wrapper = mount(TestComponent);
 

@@ -1,5 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { mount, RouterLinkStub } from "@vue/test-utils";
+import { ref } from "vue";
+import type { Show } from "../../../types/shows";
 import ShowCard from "../../../components/molecules/ShowCard/ShowCard.vue";
 import * as useShowsModule from "../composables/useShows";
 import Home from "./Home.vue";
@@ -34,13 +36,13 @@ describe("home.vue", () => {
         },
       ],
     ],
-  ]);
+  ]) as Map<string, Show[]>;
 
   it("renders loading state", () => {
     vi.spyOn(useShowsModule, "useShows").mockReturnValue({
-      shows: new Map(),
-      loading: true,
-      error: null,
+      shows: ref(new Map<string, Show[]>()),
+      loading: ref(true),
+      error: ref(null),
     });
 
     const wrapper = mount(Home);
@@ -49,9 +51,9 @@ describe("home.vue", () => {
 
   it("renders error message", () => {
     vi.spyOn(useShowsModule, "useShows").mockReturnValue({
-      shows: new Map(),
-      loading: false,
-      error: "Network error",
+      shows: ref(new Map<string, Show[]>()),
+      loading: ref(false),
+      error: ref("Network error"),
     });
 
     const wrapper = mount(Home);
@@ -60,9 +62,9 @@ describe("home.vue", () => {
 
   it("renders grouped shows and ShowCard components", () => {
     vi.spyOn(useShowsModule, "useShows").mockReturnValue({
-      shows: mockShowsMap,
-      loading: false,
-      error: null,
+      shows: ref(mockShowsMap),
+      loading: ref(false),
+      error: ref(null),
     });
 
     const wrapper = mount(Home, {
